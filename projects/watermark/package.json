@@ -1,6 +1,22 @@
 {
-  "name": "watermark",
+  "name": "@acrodata/watermark",
   "version": "0.0.1",
+  "description": "Add watermark for your page",
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "nzbin<nzb329@163.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/acrodata/watermark.git"
+  },
+  "homepage": "https://acrodata.github.io/watermark/",
+  "keywords": [
+    "angular",
+    "watermark",
+    "ngx-watermark"
+  ],
   "peerDependencies": {
     "@angular/common": "^18.2.0",
     "@angular/core": "^18.2.0"

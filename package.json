@@ -12,6 +12,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
+    "publish": "npm run build:lib && cd dist/watermark && npm publish",
     "prepare": "husky"
   },
   "private": true,
