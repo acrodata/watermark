@@ -36,7 +36,7 @@ export const defaultOptions: WatermarkOptions = {
 
 export class Watermark {
   /** 水印配置 */
-  private options: WatermarkOptions;
+  private options: WatermarkOptions = {};
   /** 水印挂载容器 */
   private container?: HTMLElement;
   /** 水印的宿主节点 */
@@ -49,22 +49,16 @@ export class Watermark {
     position: 'absolute',
     inset: 0,
   };
-  private watermarkTag: string;
+  private watermarkTag = getRandomId('watermark');
   private shadowRoot?: ShadowRoot | HTMLElement;
-  private mutationObserver: MutationObserver | null;
+  private mutationObserver: MutationObserver | null = null;
 
   constructor(options: WatermarkOptions = {}) {
     this.options = Object.assign({}, defaultOptions, options);
-    this.watermarkTag = getRandomId('watermark');
-    this.mutationObserver = null;
 
     this._render();
   }
 
-  /**
-   * 更新水印配置，并重新渲染
-   * @param options
-   */
   update(options: WatermarkOptions = {}) {
     this.options = {
       ...this.options,
@@ -74,9 +68,6 @@ export class Watermark {
     this._render();
   }
 
-  /**
-   * 显示水印
-   */
   show() {
     if (this.watermarkDom) {
       this.style['display'] = 'block';
@@ -84,9 +75,6 @@ export class Watermark {
     }
   }
 
-  /**
-   * 隐藏水印
-   */
   hide() {
     if (this.watermarkDom) {
       this.style['display'] = 'none';
@@ -94,9 +82,6 @@ export class Watermark {
     }
   }
 
-  /**
-   * 销毁水印
-   */
   destroy() {
     this.shadowRoot = undefined;
 
@@ -113,10 +98,6 @@ export class Watermark {
     this._destroyMutationObserver();
   }
 
-  /**
-   * 判断是否发起重新生成水印
-   * @param mutation
-   */
   _shouldRerender = (mutation: MutationRecord) => {
     // 修改样式或属性
     if (mutation.type === 'attributes') {
@@ -143,9 +124,6 @@ export class Watermark {
     return (node as HTMLElement)?.dataset?.[getDataSetKey(attributeNameTag)];
   };
 
-  /**
-   * 销毁 MutationObserver
-   */
   _destroyMutationObserver = () => {
     if (this.mutationObserver) {
       this.mutationObserver.takeRecords();
@@ -154,10 +132,6 @@ export class Watermark {
     }
   };
 
-  /**
-   * 获取水印节点
-   * @param watermarkHeight
-   */
   _getWatermarkDom = async () => {
     if (!this.watermarkDom) {
       this.watermarkDom = document.createElement('div');

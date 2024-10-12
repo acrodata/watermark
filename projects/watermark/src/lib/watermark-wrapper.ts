@@ -30,7 +30,7 @@ import { Watermark } from './watermark';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class WatermarkWrapper implements OnInit, OnChanges, OnDestroy {
-  @Input() options?: WatermarkOptions;
+  @Input() options: WatermarkOptions = {};
 
   private _elementRef = inject<ElementRef<HTMLElement>>(ElementRef);
   private _ngZone = inject(NgZone);
@@ -44,7 +44,7 @@ export class WatermarkWrapper implements OnInit, OnChanges, OnDestroy {
       () =>
         new Watermark({
           ...this.options,
-          container: this.options?.container || (el.childNodes.length > 0 ? el : null),
+          container: this.options.container || (el.childNodes.length > 0 ? el : null),
         })
     );
   }

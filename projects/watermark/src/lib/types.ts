@@ -1,60 +1,60 @@
-export interface BaseOptions extends CanvasTextDrawingStyles {
-  /** 水印之间的水平间距 */
+export interface WatermarkCanvas extends CanvasTextDrawingStyles {
+  /** Horizontal gap of watermarks */
   gapX: number;
-  /** 水印之间的垂直间距 */
+  /** Vertical gap of watermarks */
   gapY: number;
-  /** 水印在 canvas 画布上绘制的水平偏移量 */
+  /** Horizontal offset of the single watermark */
   offsetX: number;
-  /** 水印在 canvas 画布上绘制的垂直偏移量 */
+  /** Vertical offset of the single watermark */
   offsetY: number;
-  /** 单个水印宽度 */
+  /** Width of the single watermark */
   width: number;
-  /** 单个水印高度 */
+  /** Height of the single watermark */
   height: number;
-  /** 水印透明度 */
+  /** Opacity of the watermark */
   opacity: number;
-  /** 旋转的角度 */
+  /** Rotation degree of the watermark */
   rotate: number;
-  /** 设置字体大小 */
+  /** Font size of the text-watermark */
   fontSize: number;
-  /** 设置字体粗细 */
+  /** Font weight of the text-watermark */
   fontWeight: string | number;
-  /** 规定字体样式 */
+  /** Font style of the text-watermark */
   fontStyle: 'normal' | 'italic';
-  /** 规定字体变体 */
+  /** Font variant of the text-watermark */
   fontVariant: 'normal' | 'small-caps';
-  /** 设置字体颜色 */
+  /** Font color of the text-watermark */
   fontColor: string;
-  /** 设置水印文字的字体 */
+  /** Font family of the text-watermark */
   fontFamily: string;
-  /** 文字对齐 */
+  /** Text alignment of the text-watermark */
   textAlign: CanvasTextAlign;
-  /** 文字基准 */
+  /** Text baseline of the text-watermark */
   textBaseline: CanvasTextBaseline;
 }
 
-export interface WatermarkOptions extends Partial<BaseOptions> {
-  /** 是否保护水印防止删除 */
+export interface WatermarkOptions extends Partial<WatermarkCanvas> {
+  /** Whether prevent the watermark being removed */
   secure?: boolean;
-  /** 图片源，建议导出 2 倍或 3 倍图，优先使用图片渲染水印 */
+  /** Image of the watermark, it's recommended to use 2x or 3x image */
   image?: string;
-  /** 水印文本, 为数组时表示多行水印 */
+  /** Text of the watermark and dispaly multiple lines with array */
   text?: string | string[];
-  /** 盲水印文本 */
+  /** Text of the blind-watermark */
   blindText?: string;
-  /** 盲水印文本大小 */
+  /** Font size of the blind-watermark */
   blindFontSize?: string | number;
-  /** 盲水印透明度 */
+  /** Opacity of the blind-watermark */
   blindOpacity?: number;
-  /** 水印挂载的容器 */
+  /** Container of the watermark */
   container?: HTMLElement | string | null;
-  /** 水印重复排列的方式 */
+  /** Specify how watermarks are repeated */
   repeat?: 'none' | 'normal' | 'multiply';
-  /** 单个水印的位置，同 `background-position` */
-  position?: string;
-  /** 水印整体高度，在滚动容器中时设置 */
+  /** Specify the height of watermark in a scroll container */
   scrollHeight?: number | string;
-  /** 样式层级 */
+  /** `background-position` of the watermark */
+  position?: string;
+  /** `z-index` of the watermark */
   zIndex?: number;
 }
 
