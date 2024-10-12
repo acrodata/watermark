@@ -90,7 +90,16 @@ export const blindDecryption = (ctx: CanvasRenderingContext2D) => {
 
 export const createHost = (watermarkTag: string) => {
   const dom = document.createElement('div');
-  dom.setAttribute('style', getStyleStr({ pointerEvents: 'none' }));
+  // 可以隐藏元素的 CSS 属性
+  const hiddenCSS = {
+    'display': 'block !important',
+    'position': 'static !important',
+    'opacity': '1 !important',
+    'visibility': 'visible !important',
+    'transform': 'none !important',
+    'clip-path': 'none !important',
+  };
+  dom.setAttribute('style', getStyleStr(hiddenCSS));
   dom.setAttribute(attributeNameTag, watermarkTag);
   return dom;
 };

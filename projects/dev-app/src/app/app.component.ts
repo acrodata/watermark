@@ -12,7 +12,7 @@ import { RouterOutlet } from '@angular/router';
 export class AppComponent implements OnInit {
   options: WatermarkOptions = {
     text: 'abc123',
-    secure: false,
+    // secure: false,
   };
 
   ngOnInit(): void {
