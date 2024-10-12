@@ -3,6 +3,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "strict": true,
     "noImplicitOverride": true,
@@ -23,9 +24,12 @@
       "dom"
     ],
     "paths": {
-      "watermark": [
-        "./dist/watermark"
-      ]
+      "@acrodata/watermark": [
+        "projects/watermark"
+      ],
+      "@acrodata/watermark/*": [
+        "projects/watermark/*"
+      ],
     }
   },
   "angularCompilerOptions": {

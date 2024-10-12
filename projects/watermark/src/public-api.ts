@@ -2,5 +2,7 @@
  * Public API Surface of watermark
  */
 
-export * from './lib/watermark.service';
-export * from './lib/watermark.component';
+export { WatermarkOptions } from './lib/types';
+export { blindDecryption } from './lib/utils';
+export * from './lib/watermark';
+export * from './lib/watermark-wrapper';
