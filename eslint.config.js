@@ -27,6 +27,11 @@ module.exports = tseslint.config(
       'quote-props': ['warn', 'consistent-as-needed'],
       'quotes': ['warn', 'single', { allowTemplateLiterals: true }],
       'semi': ['warn', 'always'],
+      '@typescript-eslint/no-explicit-any': 'off',
+      '@typescript-eslint/no-empty-function': 'off',
+      '@typescript-eslint/no-unused-vars': 'off',
+      '@angular-eslint/no-empty-lifecycle-method': 'off',
+      '@angular-eslint/no-host-metadata-property': 'off',
     },
   },
   {
