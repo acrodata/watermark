@@ -27,9 +27,11 @@ export function getDataSetKey(attributeName: string) {
 export const getStyleStr = (style: Record<string, string | number>) => {
   let str = '';
 
-  Object.keys(style).forEach(item => {
-    const key = item.replace(/([A-Z])/g, '-$1').toLowerCase();
-    str += `${key}:${style[item]};`;
+  Object.keys(style).forEach(key => {
+    const k = key.replace(/([A-Z])/g, '-$1').toLowerCase();
+    if (style[key] !== '' && style[key] != null) {
+      str += `${k}:${style[key]};`;
+    }
   });
 
   return str;

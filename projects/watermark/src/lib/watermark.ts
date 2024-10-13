@@ -146,9 +146,12 @@ export class Watermark {
 
       if (this.options.repeat === 'multiply') {
         this.style['backgroundImage'] = `url(${bgImg}), url(${bgImg})`;
+        this.style['backgroundRepeat'] = 'repeat';
         this.style['backgroundPosition'] = `${bgConfig.width / 2}px ${bgConfig.height / 2}px, 0 0`;
       } else {
         this.style['backgroundImage'] = `url(${bgImg})`;
+        this.style['backgroundRepeat'] = 'repeat';
+        this.style['backgroundPosition'] = '';
 
         if (this.options.repeat === 'none') {
           this.style['backgroundRepeat'] = 'no-repeat';
