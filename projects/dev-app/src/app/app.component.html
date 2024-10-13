@@ -30,6 +30,10 @@
   <p>123</p>
 </div>
 
-<watermark-wrapper [options]="options">
-  <div class="container"></div>
-</watermark-wrapper>
+<button (click)="show=!show">toggle show</button>
+
+@if (show) {
+  <div watermark [watermarkOptions]="options" [style.display]="'block'">
+    <div class="container"></div>
+  </div>
+}
