@@ -1,7 +1,7 @@
 {
   "name": "@acrodata/watermark",
-  "version": "0.0.1",
-  "description": "Add watermark for your page",
+  "version": "1.0.0",
+  "description": "Add watermark to your page",
   "publishConfig": {
     "access": "public"
   },
@@ -15,12 +15,10 @@
   "keywords": [
     "angular",
     "watermark",
+    "image-watermark",
+    "blink-watermark",
     "ngx-watermark"
   ],
-  "peerDependencies": {
-    "@angular/common": "^18.2.0",
-    "@angular/core": "^18.2.0"
-  },
   "dependencies": {
     "tslib": "^2.3.0"
   },
