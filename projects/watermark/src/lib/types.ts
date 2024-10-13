@@ -1,19 +1,19 @@
-export interface WatermarkCanvas extends CanvasTextDrawingStyles {
-  /** Horizontal gap of watermarks */
+export interface WatermarkContent extends CanvasTextDrawingStyles {
+  /** Horizontal gap of watermark contents */
   gapX: number;
-  /** Vertical gap of watermarks */
+  /** Vertical gap of watermark contents */
   gapY: number;
-  /** Horizontal offset of the single watermark */
+  /** Horizontal offset of the watermark content */
   offsetX: number;
-  /** Vertical offset of the single watermark */
+  /** Vertical offset of the watermark content */
   offsetY: number;
-  /** Width of the single watermark */
+  /** Width of the watermark content */
   width: number;
-  /** Height of the single watermark */
+  /** Height of the watermark content */
   height: number;
   /** Opacity of the watermark */
   opacity: number;
-  /** Rotation degree of the watermark */
+  /** Rotation degree of the watermark content */
   rotate: number;
   /** Font size of the text-watermark */
   fontSize: number;
@@ -33,10 +33,10 @@ export interface WatermarkCanvas extends CanvasTextDrawingStyles {
   textBaseline: CanvasTextBaseline;
 }
 
-export interface WatermarkOptions extends Partial<WatermarkCanvas> {
+export interface WatermarkOptions extends Partial<WatermarkContent> {
   /** Whether prevent the watermark being removed */
   secure?: boolean;
-  /** Image of the watermark, it's recommended to use 2x or 3x image */
+  /** Image suorce of the watermark, it's recommended to use 2x or 3x image */
   image?: string;
   /** Text of the watermark and dispaly multiple lines with array */
   text?: string | string[];
@@ -52,9 +52,9 @@ export interface WatermarkOptions extends Partial<WatermarkCanvas> {
   repeat?: 'none' | 'normal' | 'multiply';
   /** Specify the height of watermark in a scroll container */
   scrollHeight?: number | string;
-  /** `background-position` of the watermark */
+  /** Specify `background-position` of the watermark */
   position?: string;
-  /** `z-index` of the watermark */
+  /** Specify `z-index` of the watermark */
   zIndex?: number;
 }
 
