@@ -1,8 +1,11 @@
 .container {
-  position: relative;
-  width: 500px;
-  height: 500px;
-  border: 1px solid;
-  overflow: auto;
-  text-align: center;
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  height: 100%;
+  padding: 16px;
+}
+
+[watermark] {
+  padding: 0 16px;
+  border: 1px solid var(--mat-divider-color)
 }

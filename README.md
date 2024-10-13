@@ -3,10 +3,11 @@
 [![npm](https://img.shields.io/npm/v/@acrodata/watermark.svg)](https://www.npmjs.com/package/@acrodata/watermark)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/acrodata/watermark/blob/main/LICENSE)
 
-Add watermark for your page.
+Add watermark to your page.
 
 #### Quick links
 
+[Documentation](https://github.com/acrodata/watermark?tab=readme-ov-file#watermark) |
 [Playground](https://acrodata.github.io/watermark/)
 
 ## Installation

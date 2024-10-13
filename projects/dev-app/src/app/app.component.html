@@ -1,39 +1,11 @@
 <div class="container">
-  <p>123</p>
-  <p>123</p>
-  <p>123</p>
-  <p>123</p>
-  <p>123</p>
-  <p>123</p>
-  <p>123</p>
-  <p>123</p>
-  <p>123</p>
-  <p>123</p>
-  <p>123</p>
-  <p>123</p>
-  <p>123</p>
-  <p>123</p>
-  <p>123</p>
-  <p>123</p>
-  <p>123</p>
-  <p>123</p>
-  <p>123</p>
-  <p>123</p>
-  <p>123</p>
-  <p>123</p>
-  <p>123</p>
-  <p>123</p>
-  <p>123</p>
-  <p>123</p>
-  <p>123</p>
-  <p>123</p>
-  <p>123</p>
-</div>
-
-<button (click)="show=!show">toggle show</button>
-
-@if (show) {
-  <div watermark [watermarkOptions]="options" [style.display]="'block'">
-    <div class="container"></div>
+  <div>
+    <gui-form [config]="config" (modelChange)="onModelChange($event)" />
   </div>
-}
+
+  <div watermark [watermarkOptions]="options">
+    <p>
+      Add watermark to your page.
+    </p>
+  </div>
+</div>

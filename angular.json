@@ -138,6 +138,13 @@
             ],
             "eslintConfig": "projects/dev-app/eslint.config.js"
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "baseHref": "/watermark/",
+            "remote": "origin"
+          }
         }
       }
     }
