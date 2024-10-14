@@ -165,7 +165,7 @@ export class Watermark {
 
       if (this.options.scrollHeight) {
         const height = this.options.scrollHeight;
-        this.style['height'] = typeof height === 'string' ? height : height + 'px';
+        this.style['height'] = isNaN(Number(height)) ? height : height + 'px';
       }
 
       this.watermarkDom.setAttribute('style', getStyleStr(this.style));

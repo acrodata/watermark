@@ -34,6 +34,8 @@ export interface WatermarkContent extends CanvasTextDrawingStyles {
 }
 
 export interface WatermarkOptions extends Partial<WatermarkContent> {
+  /** Container of the watermark */
+  container?: HTMLElement | string | null;
   /** Whether prevent the watermark being removed */
   secure?: boolean;
   /** Image suorce of the watermark, it's recommended to use 2x or 3x image */
@@ -46,16 +48,14 @@ export interface WatermarkOptions extends Partial<WatermarkContent> {
   blindFontSize?: string | number;
   /** Opacity of the blind-watermark */
   blindOpacity?: number;
-  /** Container of the watermark */
-  container?: HTMLElement | string | null;
   /** Specify how watermarks are repeated */
   repeat?: 'none' | 'normal' | 'multiply';
-  /** Specify the height of watermark in a scroll container */
-  scrollHeight?: number | string;
   /** Specify `background-position` of the watermark */
   position?: string;
   /** Specify `z-index` of the watermark */
   zIndex?: number;
+  /** Specify the height of watermark in a scroll container */
+  scrollHeight?: number | string;
 }
 
 export interface DrawPatternResult {

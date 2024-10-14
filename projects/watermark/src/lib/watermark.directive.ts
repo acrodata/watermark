@@ -1,9 +1,11 @@
 import {
+  booleanAttribute,
   Directive,
   ElementRef,
   inject,
   Input,
   NgZone,
+  numberAttribute,
   OnChanges,
   OnDestroy,
   OnInit,
@@ -22,6 +24,14 @@ import { Watermark } from './watermark';
 export class WatermarkDirective implements OnInit, OnChanges, OnDestroy {
   @Input({ alias: 'watermarkOptions' }) options: WatermarkOptions = {};
 
+  @Input({ alias: 'watermarkContainer' }) container?: HTMLElement | string | null;
+
+  @Input({ alias: 'watermarkSecure', transform: booleanAttribute }) secure = true;
+
+  @Input({ alias: 'watermarkZIndex', transform: numberAttribute }) zIndex = 9999;
+
+  @Input({ alias: 'watermarkScrollHeight' }) scrollHeight?: string | number;
+
   private _elementRef = inject<ElementRef<HTMLElement>>(ElementRef);
   private _ngZone = inject(NgZone);
 
@@ -34,7 +44,10 @@ export class WatermarkDirective implements OnInit, OnChanges, OnDestroy {
       () =>
         new Watermark({
           ...this.options,
-          container: this.options.container || (el.childNodes.length > 0 ? el : null),
+          container: this.container || (el.childNodes.length > 0 ? el : null),
+          secure: this.secure,
+          zIndex: this.zIndex,
+          scrollHeight: this.scrollHeight,
         })
     );
   }
