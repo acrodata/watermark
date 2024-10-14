@@ -1,8 +1,14 @@
 .container {
   display: grid;
-  grid-template-columns: 320px 1fr;
+  grid-template-columns: 300px 1fr;
   height: 100%;
   padding: 16px;
+}
+
+mat-toolbar {
+  --mat-toolbar-standard-height: 56px;
+
+  justify-content: space-between;
 }
 
 [watermark] {

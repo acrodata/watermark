@@ -1,12 +1,14 @@
 import { GuiFields, GuiModule } from '@acrodata/gui';
 import { WatermarkDirective, WatermarkOptions } from '@acrodata/watermark';
 import { Component, OnInit } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, WatermarkDirective, GuiModule],
+  imports: [RouterOutlet, WatermarkDirective, GuiModule, MatButtonModule, MatToolbarModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
@@ -24,9 +26,10 @@ export class AppComponent implements OnInit {
     image: {
       type: 'text',
       name: 'image',
+      description: 'If both image and text are set, render the image first',
     },
     text: {
-      type: 'text',
+      type: 'textarea',
       name: 'text',
       default: 'abc123',
     },
@@ -43,6 +46,7 @@ export class AppComponent implements OnInit {
     position: {
       type: 'text',
       name: 'position',
+      placeholder: 'background-position',
     },
     width: {
       type: 'number',

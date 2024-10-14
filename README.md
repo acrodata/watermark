@@ -18,16 +18,6 @@ npm install @acrodata/watermark --save
 
 ## Usage
 
-### Vanilla JS
-
-```ts
-import { Watermark } from '@acrodata/watermark';
-
-const watermark = new Watermark(options);
-```
-
-### Angular directive
-
 ```ts
 import { Component } from '@angular/core';
 import { WatermarkDirective, WatermarkOptions } from '@acrodata/watermark';
@@ -49,21 +39,33 @@ export class YourAppComponent {
 }
 ```
 
-## Options
+## API
+
+### Inputs
+
+| Name         | Type                          | Default     | Description                          |
+| ------------ | ----------------------------- | ----------- | ------------------------------------ |
+| options      | WatermarkOptions              | `{}`        | See `WatermarkOptions`               |
+| container    | HTMLElement \| string \| null | `undefined` | See `WatermarkOptions['container']`  |
+| secure       | boolean                       | `true`      | See `WatermarkOptions[secure]`       |
+| zIndex       | number                        | `9999`      | See `WatermarkOptions[zIndex]`       |
+| scrollHeight | string \|number               | `undefined` | See `WatermarkOptions[scrollHeight]` |
+
+### WatermarkOptions
 
 | Name          | Type                             | Default      | Description                                                           |
 | ------------- | -------------------------------- | ------------ | --------------------------------------------------------------------- |
+| container     | HTMLElement \| string \| null    | `undefined`  | Container of the watermark                                            |
 | secure        | boolean                          | `true`       | Whether prevent the watermark being removed                           |
-| image         | string                           | `''`         | Image source of the watermark, it's recommended to use 2x or 3x image |
-| text          | string \| string[]               | `''`         | Text of the watermark and dispaly multiple lines with using array     |
-| blindText     | string                           | `''`         | Text of the blind-watermark                                           |
+| image         | string                           | `undefined`  | Image source of the watermark, it's recommended to use 2x or 3x image |
+| text          | string \| string[]               | `undefined`  | Text of the watermark and dispaly multiple lines with using array     |
+| blindText     | string                           | `undefined`  | Text of the blind-watermark                                           |
 | blindFontSize | string \| number                 | `16`         | Font size of the blind-watermark                                      |
 | blindOpacity  | boolean                          | `0.005`      | Opacity of the blind-watermark                                        |
-| container     | HTMLElement \| string \| null    | `body`       | Container of the watermark                                            |
 | repeat        | 'none' \| 'normal' \| 'multiply' | `multiply`   | Specify how watermarks are repeated                                   |
-| scrollHeight  | number \| string                 | `true`       | Specify the height of watermark in a scroll container                 |
-| position      | string                           | `''`         | Specify `background-position` of the watermark                        |
+| position      | string                           | `undefined`  | Specify `background-position` of the watermark                        |
 | zIndex        | number                           | `9999`       | Specify `z-index` of the watermark                                    |
+| scrollHeight  | number \| string                 | `undefined`  | Specify the height of watermark in a scroll container                 |
 | gapX          | number                           | `100`        | Horizontal gap of watermark contents                                  |
 | gapY          | number                           | `100`        | Vertical gap of watermark contents                                    |
 | offsetX       | number                           | `0`          | Horizontal offset of the watermark content                            |
