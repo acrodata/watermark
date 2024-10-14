@@ -183,7 +183,7 @@ export function getDrawPattern(opts: WatermarkOptions): Promise<DrawPatternResul
       }
 
       // 获取文本的最大宽度
-      const texts = Array.isArray(text) ? text : [text];
+      const texts = typeof text === 'string' ? text.split('\n') : text;
       const widths = texts.map(item => ctx.measureText(item).width);
       const maxWidth = Math.max(...widths);
 
