@@ -43,13 +43,13 @@ export class YourAppComponent {
 
 ### Inputs
 
-| Name         | Type                          | Default     | Description                          |
-| ------------ | ----------------------------- | ----------- | ------------------------------------ |
-| options      | WatermarkOptions              | `{}`        | See `WatermarkOptions`               |
-| container    | HTMLElement \| string \| null | `undefined` | See `WatermarkOptions['container']`  |
-| secure       | boolean                       | `true`      | See `WatermarkOptions[secure]`       |
-| zIndex       | number                        | `9999`      | See `WatermarkOptions[zIndex]`       |
-| scrollHeight | string \|number               | `undefined` | See `WatermarkOptions[scrollHeight]` |
+| Name           | Type                          | Default     | Description                            |
+| -------------- | ----------------------------- | ----------- | -------------------------------------- |
+| [options]      | WatermarkOptions              | `{}`        | See `WatermarkOptions`                 |
+| [container]    | HTMLElement \| string \| null | `undefined` | See `WatermarkOptions['container']`    |
+| [secure]       | boolean                       | `true`      | See `WatermarkOptions['secure']`       |
+| [zIndex]       | number                        | `9999`      | See `WatermarkOptions['zIndex']`       |
+| [scrollHeight] | string \|number               | `undefined` | See `WatermarkOptions['scrollHeight']` |
 
 ### WatermarkOptions
 

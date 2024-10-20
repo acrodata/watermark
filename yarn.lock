@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@acrodata/gui@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@acrodata/gui/-/gui-2.0.0.tgz#2246b5b2eea58cd2cb01c854a86667c3c88c63ba"
-  integrity sha512-9EEd2+Y4TWHPy/BQY6KtLsUmTA3bid1ymBJUXCCHuQQERAwMq9LvfUiWkItcFholp9cDO5dz7Y5XBSt4iFrMJw==
+"@acrodata/gui@^2.1.0":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@acrodata/gui/-/gui-2.1.1.tgz#41673ea4bc253895b6a39e6b35b458f1c72f56cb"
+  integrity sha512-/ULBlB9UEfWF+1IYOJCzc+V69PJ55y1DV0e4z4L0WR68RfBn0f/CvI3oiiJbTaPG0GP+A43VSxCaFjmTzZRWLg==
   dependencies:
     tslib "^2.3.0"
 
