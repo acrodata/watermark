@@ -1,20 +1,21 @@
 import { GuiFields, GuiModule } from '@acrodata/gui';
-import { WatermarkDirective, WatermarkOptions } from '@acrodata/watermark';
+import { blindDecryption, WatermarkDirective, WatermarkOptions } from '@acrodata/watermark';
 import { Component, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { RouterOutlet } from '@angular/router';
+import html2canvas from 'html2canvas';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, WatermarkDirective, GuiModule, MatButtonModule, MatToolbarModule],
+  imports: [WatermarkDirective, GuiModule, MatButtonModule, MatToolbarModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit {
   options: WatermarkOptions = {
     text: 'abc123',
+    blindText: 'Blind Text',
   };
 
   config: GuiFields = {
@@ -162,11 +163,49 @@ export class AppComponent implements OnInit {
       useFont: true,
       default: 'sans-serif',
     },
+    blindText: {
+      type: 'text',
+      name: 'blindText',
+      default: 'Blind Text',
+    },
+    blindFontSize: {
+      type: 'number',
+      name: 'blindFontSize',
+      suffix: 'px',
+      default: 16,
+    },
+    blindOpacity: {
+      type: 'slider',
+      name: 'blindOpacity',
+      min: 0,
+      max: 1,
+      step: 0.01,
+      default: 0.005,
+    },
   };
 
-  ngOnInit(): void {}
+  image = '';
+
+  ngOnInit(): void {
+    html2canvas(document.querySelector('main')!, { useCORS: true });
+  }
 
   onModelChange(v: any) {
     this.options = v;
+  }
+
+  async decryption() {
+    const canvas = await html2canvas(document.querySelector('main')!, { useCORS: true });
+
+    const ctx = canvas.getContext('2d');
+    if (ctx) {
+      // 处理像素解密盲水印
+      blindDecryption(ctx);
+      this.image = canvas.toDataURL();
+    }
+  }
+
+  restore() {
+    this.image = '';
   }
 }

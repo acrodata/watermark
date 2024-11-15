@@ -1,8 +1,7 @@
-.container {
-  display: grid;
-  grid-template-columns: 300px 1fr;
-  height: 100%;
-  padding: 16px;
+:host ::ng-deep {
+  .gui-field-label {
+    width: 90px;
+  }
 }
 
 mat-toolbar {
@@ -11,7 +10,25 @@ mat-toolbar {
   justify-content: space-between;
 }
 
-[watermark] {
-  padding: 0 16px;
+.container {
+  position: relative;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  height: calc(100% - var(--mat-toolbar-standard-height));
+  padding: 16px;
+}
+
+main {
+  padding: 16px;
   border: 1px solid var(--mat-divider-color)
+}
+
+p {
+  margin-top: 0;
+}
+
+img {
+  position: absolute;
+  top: 0;
+  left: 0;
 }
