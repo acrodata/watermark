@@ -2,6 +2,7 @@ import { WatermarkOptions } from './types';
 import {
   attributeNameTag,
   createHost,
+  decrypt,
   getContainer,
   getDataSetKey,
   getDrawPattern,
@@ -58,6 +59,8 @@ export class Watermark {
 
     this._render();
   }
+
+  static decrypt = decrypt;
 
   update(options: WatermarkOptions = {}) {
     this.options = {

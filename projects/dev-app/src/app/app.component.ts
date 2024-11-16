@@ -1,5 +1,5 @@
 import { GuiFields, GuiModule } from '@acrodata/gui';
-import { blindDecryption, WatermarkDirective, WatermarkOptions } from '@acrodata/watermark';
+import { Watermark, WatermarkDirective, WatermarkOptions } from '@acrodata/watermark';
 import { Component, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -14,7 +14,7 @@ import html2canvas from 'html2canvas';
 })
 export class AppComponent implements OnInit {
   options: WatermarkOptions = {
-    text: 'abc123',
+    text: 'Angular',
     blindText: 'Blind Text',
   };
 
@@ -32,7 +32,7 @@ export class AppComponent implements OnInit {
     text: {
       type: 'textarea',
       name: 'text',
-      default: 'abc123',
+      default: 'Angular',
     },
     repeat: {
       type: 'buttonToggle',
@@ -194,13 +194,13 @@ export class AppComponent implements OnInit {
     this.options = v;
   }
 
-  async decryption() {
+  async decrypt() {
     const canvas = await html2canvas(document.querySelector('main')!, { useCORS: true });
 
     const ctx = canvas.getContext('2d');
     if (ctx) {
       // 处理像素解密盲水印
-      blindDecryption(ctx);
+      Watermark.decrypt(ctx);
       this.image = canvas.toDataURL();
     }
   }

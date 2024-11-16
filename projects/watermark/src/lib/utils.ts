@@ -37,15 +37,10 @@ export const getStyleStr = (style: Record<string, string | number>) => {
   return str;
 };
 
-const encrypt = (str: string) => {
-  return window.btoa(decodeURI(encodeURIComponent(str)));
-};
-
 /** 创建随机 ID */
 export const getRandomId = (prefix = '') => {
-  return `${encrypt(prefix)}-${new Date().getTime()}-${Math.floor(
-    Math.random() * Math.pow(10, 8)
-  )}`;
+  const uid = window.btoa(decodeURI(encodeURIComponent(prefix)));
+  return `${uid}-${new Date().getTime()}-${Math.floor(Math.random() * Math.pow(10, 8))}`;
 };
 
 /** 获取水印挂载节点 */
@@ -65,7 +60,7 @@ export const getContainer = (container: WatermarkOptions['container']) => {
 };
 
 /** 盲水印解密 */
-export const blindDecryption = (ctx: CanvasRenderingContext2D) => {
+export const decrypt = (ctx: CanvasRenderingContext2D) => {
   const originalData = ctx.getImageData(0, 0, ctx.canvas.width, ctx.canvas.height);
   const data = originalData.data;
   for (let i = 0; i < data.length; i++) {
