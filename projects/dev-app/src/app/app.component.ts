@@ -7,7 +7,6 @@ import html2canvas from 'html2canvas';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
   imports: [WatermarkDirective, GuiModule, MatButtonModule, MatToolbarModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',

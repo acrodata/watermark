@@ -29,7 +29,6 @@ import { WatermarkDirective, WatermarkOptions } from '@acrodata/watermark';
       <p>...</p>
     </div>
   `,
-  standalone: true,
   imports: [WatermarkDirective],
 })
 export class YourAppComponent {

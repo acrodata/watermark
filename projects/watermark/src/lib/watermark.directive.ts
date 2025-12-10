@@ -16,7 +16,6 @@ import { Watermark } from './watermark';
 @Directive({
   selector: '[watermark]',
   exportAs: 'watermark',
-  standalone: true,
   host: {
     '[style.position]': '"relative"',
   },
