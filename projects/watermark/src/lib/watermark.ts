@@ -1,5 +1,6 @@
 import { WatermarkOptions } from './types';
 import {
+  applyStyle,
   attributeNameTag,
   createHost,
   decrypt,
@@ -7,7 +8,6 @@ import {
   getDataSetKey,
   getDrawPattern,
   getRandomId,
-  getStyleStr,
   observeOptions,
 } from './utils';
 
@@ -74,14 +74,14 @@ export class Watermark {
   show() {
     if (this.watermarkDom) {
       this.style['display'] = 'block';
-      this.watermarkDom.setAttribute('style', getStyleStr(this.style));
+      applyStyle(this.watermarkDom, this.style);
     }
   }
 
   hide() {
     if (this.watermarkDom) {
       this.style['display'] = 'none';
-      this.watermarkDom.setAttribute('style', getStyleStr(this.style));
+      applyStyle(this.watermarkDom, this.style);
     }
   }
 
@@ -171,7 +171,7 @@ export class Watermark {
         this.style['height'] = isNaN(Number(height)) ? height : height + 'px';
       }
 
-      this.watermarkDom.setAttribute('style', getStyleStr(this.style));
+      applyStyle(this.watermarkDom, this.style);
     }
 
     this.watermarkDom.setAttribute(attributeNameTag, this.watermarkTag);
