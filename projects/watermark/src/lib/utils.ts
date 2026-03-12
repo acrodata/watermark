@@ -23,18 +23,23 @@ export function getDataSetKey(attributeName: string) {
     });
 }
 
-/** 将样式对象转换为字符串 */
-export const getStyleStr = (style: Record<string, string | number>) => {
-  let str = '';
+/** 通过 CSSOM API 应用样式（CSP 安全，无需 unsafe-inline） */
+export const applyStyle = (el: HTMLElement, style: Record<string, string | number>) => {
+  el.style.cssText = '';
 
   Object.keys(style).forEach(key => {
-    const k = key.replace(/([A-Z])/g, '-$1').toLowerCase();
     if (style[key] !== '' && style[key] != null) {
-      str += `${k}:${style[key]};`;
+      const value = String(style[key]);
+      const prop = key.replace(/([A-Z])/g, '-$1').toLowerCase();
+
+      if (value.endsWith('!important')) {
+        const cleanValue = value.replace(/\s*!important$/, '');
+        el.style.setProperty(prop, cleanValue, 'important');
+      } else {
+        el.style.setProperty(prop, value);
+      }
     }
   });
-
-  return str;
 };
 
 /** 创建随机 ID */
@@ -96,7 +101,7 @@ export const createHost = (watermarkTag: string) => {
     'transform': 'none !important',
     'clip-path': 'none !important',
   };
-  dom.setAttribute('style', getStyleStr(hiddenCSS));
+  applyStyle(dom, hiddenCSS);
   dom.setAttribute(attributeNameTag, watermarkTag);
   return dom;
 };
