@@ -1,7 +1,7 @@
 <mat-toolbar>
   <span>Watermark</span>
 
-  @if (image) {
+  @if (image()) {
     <button mat-stroked-button (click)="restore()">Restore</button>
   } @else {
     <button mat-stroked-button (click)="decrypt()">Decrypt blind watermark</button>
@@ -29,8 +29,8 @@
   <main watermark [watermarkOptions]="options">
     <p>Add watermark to your page.</p>
 
-    @if (image) {
-      <img [src]="image" alt="blind watermark decyption image" width="100%" height="100%" />
+    @if (image()) {
+      <img [src]="image()" alt="blind watermark decyption image" width="100%" height="100%" />
     }
   </main>
 </div>

@@ -1,6 +1,6 @@
 import { GuiFields, GuiModule } from '@acrodata/gui';
 import { Watermark, WatermarkDirective, WatermarkOptions } from '@acrodata/watermark';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import html2canvas from 'html2canvas';
@@ -145,6 +145,7 @@ export class App implements OnInit {
     },
     fontColor: {
       type: 'fill',
+      mode: 'solid',
       name: 'fontColor',
       default: '#000',
     },
@@ -183,7 +184,7 @@ export class App implements OnInit {
     },
   };
 
-  image = '';
+  image = signal('');
 
   ngOnInit(): void {
     html2canvas(document.querySelector('main')!, { useCORS: true });
@@ -200,11 +201,11 @@ export class App implements OnInit {
     if (ctx) {
       // 处理像素解密盲水印
       Watermark.decrypt(ctx);
-      this.image = canvas.toDataURL();
+      this.image.set(canvas.toDataURL());
     }
   }
 
   restore() {
-    this.image = '';
+    this.image.set('');
   }
 }
