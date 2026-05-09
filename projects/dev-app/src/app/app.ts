@@ -8,10 +8,10 @@ import html2canvas from 'html2canvas';
 @Component({
   selector: 'app-root',
   imports: [WatermarkDirective, GuiModule, MatButtonModule, MatToolbarModule],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+  templateUrl: './app.html',
+  styleUrl: './app.scss',
 })
-export class AppComponent implements OnInit {
+export class App implements OnInit {
   options: WatermarkOptions = {
     text: 'Angular',
     blindText: 'Blind Text',
