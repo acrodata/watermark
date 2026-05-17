@@ -10,6 +10,12 @@ Add watermark to your page.
 [Documentation](https://github.com/acrodata/watermark?tab=readme-ov-file#watermark) |
 [Playground](https://acrodata.github.io/watermark/)
 
+## Compatibility
+
+| Angular | @acrodata/watermark |
+| ------- | ------------------- |
+| >=16    | 1.x                 |
+
 ## Installation
 
 ```bash
